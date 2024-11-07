@@ -1,0 +1,28 @@
+.listClass {
+    border: 1px solid black;
+    border-width: 1.5px;
+    border-radius: 5px;
+    width: 60%;
+    color: black;
+    font-size: larger;
+    display: flex;
+    align-self: center;
+    justify-content:space-between;
+    justify-self: center;
+    background-color: rgb(211, 246, 252);
+    padding: 10px;
+    text-transform: capitalize;
+    margin: 10px;
+}
+
+.container {
+    border: 1px solid black;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+
+

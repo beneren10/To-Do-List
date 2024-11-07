@@ -1,22 +1,24 @@
 const btn = document.getElementById("button1");
 const txtinput = document.getElementById("textinput");
-
+let counter = 0;
 
 txtinput.addEventListener("keydown", (event) => {
   if (event.key == "Enter") {
     newItem()
+    
   }
 });
 
 function newItem(){
+  counter++
   // initialise three divs to make 1 for the list item and 2 for in the list
   const divParent = document.createElement("div");
   const divChild = document.createElement("div");
   const divTotal = document.createElement("div");
   
-  //put these two inside of a div called "listClass"
+  //put these two inside of a div - (divTotal) called "listClass"
   const newContent = document.createTextNode(txtinput.value);
-  const childContent = document.createTextNode("Home");
+  const childContent = document.createTextNode(counter);
 
   divChild.appendChild(childContent)
   divParent.appendChild(newContent)
@@ -43,4 +45,7 @@ function reset(){
     divTotals.id = "list";
     divTotals.className = "list";
     document.getElementById("head").appendChild(divTotals);
+
+    //resets counter 
+    counter = 0;
 }

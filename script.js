@@ -9,34 +9,50 @@ txtinput.addEventListener("keydown", (event) => {
 });
 
 function newItem(){
+
   if (txtinput.value === ""){
+
     alert("You didn't enter anything into the text box")
+
   } else {
+
     counter++
     // initialise three divs to make 1 for the list item and 2 for in the list
     const divParent = document.createElement("div");
     const divChild = document.createElement("div");
-    const divTotal = document.createElement("div");
-    const button2 = document.createElement("button")
+    const icon = document.createElement("i");
+    const bomb = document.createElement("i");
     
-    //put these two inside of a div - (divTotal) called "listClass"
-    const newContent = document.createTextNode(txtinput.value);
-    const childContent = document.createTextNode(counter);
+    // const childContent = document.createTextNode(counter);
 
-    divChild.appendChild(childContent)
-    divParent.appendChild(newContent)
-    
+    // divChild.appendChild(childContent)
+    divChild.appendChild(bomb)
+    divChild.appendChild(icon)
+    divParent.innerHTML = "<div>"+txtinput.value+"</div>"
+ 
     // put the data inside the div to add to the HTML
-    divTotal.appendChild(divParent)
-    divTotal.appendChild(divChild)
+    divParent.appendChild(divChild)
 
-    divTotal.id = "div_id" ;
-    divTotal.className = "listClass";
+    divParent.id = "div_id";
+    divParent.className = "listClass";
+    bomb.className = "fa-solid fa-bomb";
+    icon.className = "fa-solid fa-bell";
+    icon.id = "icon";
+    bomb.id = "bomb";
 
-    document.getElementById("list").appendChild(divTotal);  
+    //icon for checking an item off the list 
+    icon.addEventListener("click",function(){
+      icon.style.color = "limegreen";
+    });
+    bomb.addEventListener("click",function(){
+      divParent.remove();
+    });
+
+    document.getElementById("list").appendChild(divParent);  
 
     // clear the input box at the end
     txtinput.value = "";
+
   }
 }
 
@@ -54,6 +70,4 @@ function reset(){
     counter = 0;
 }
 
-function deleteItem(){
 
-}

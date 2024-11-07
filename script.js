@@ -9,7 +9,7 @@ txtinput.addEventListener("keydown", (event) => {
 });
 
 function newItem(){
-  const divClass = document.createElement("div")
+  // initialise three divs to make 1 for the list item and 2 for in the list
   const divParent = document.createElement("div");
   const divChild = document.createElement("div");
   const divTotal = document.createElement("div");
@@ -21,6 +21,7 @@ function newItem(){
   divChild.appendChild(childContent)
   divParent.appendChild(newContent)
   
+  // put the data inside the div to add to the HTML
   divTotal.appendChild(divParent)
   divTotal.appendChild(divChild)
 
@@ -28,11 +29,16 @@ function newItem(){
   divTotal.className = "listClass";
 
   document.getElementById("list").appendChild(divTotal);  
+
+  // clear the input box at the end
   txtinput.value = "";
 }
 
 function reset(){
+    //removes the list class and all entries
     document.getElementById("list").remove();
+
+    //creates a new class called list so newItem() can work
     const divTotals = document.createElement("div");
     divTotals.id = "list";
     divTotals.className = "list";

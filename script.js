@@ -20,16 +20,14 @@ function newItem(){
 
   divChild.appendChild(childContent)
   divParent.appendChild(newContent)
-  divClass.appendChild(divTotal)
+  
   divTotal.appendChild(divParent)
   divTotal.appendChild(divChild)
 
-  divClass.id = "list";
-  divClass.className = "list"
   divTotal.id = "div_id" ;
   divTotal.className = "listClass";
 
-  document.getElementById("list").appendChild(divClass);  
+  document.getElementById("list").appendChild(divTotal);  
   txtinput.value = "";
 }
 

@@ -1,5 +1,8 @@
 const btn = document.getElementById("button1");
 const txtinput = document.getElementById("textinput");
+const exLine = document.querySelector('#list li')
+const dateInput = document.querySelector('#time-input')
+
 let counter = 0;
 
 txtinput.addEventListener("keydown", (event) => {
@@ -10,12 +13,12 @@ txtinput.addEventListener("keydown", (event) => {
 
 function newItem(){
 
-  if (txtinput.value === ""){
+  if (txtinput.value === "" || !dateInput.value){
 
-    alert("You didn't enter anything into the text box")
+    alert("You didn't enter all the details")
 
   } else {
-
+    exLine.remove()
     counter++
     // initialise three divs to make 1 for the list item and 2 for in the list
     const divParent = document.createElement("div");
@@ -23,12 +26,13 @@ function newItem(){
     const icon = document.createElement("i");
     const bomb = document.createElement("i");
     
-    // const childContent = document.createTextNode(counter);
+    // Add class to DivChild
+    divChild.className = 'icon-box'
 
     // divChild.appendChild(childContent)
     divChild.appendChild(bomb)
     divChild.appendChild(icon)
-    divParent.innerHTML = "<div>"+txtinput.value+"</div>"
+    divParent.innerHTML = `Date: ${dateInput.value} <br> Item: ${txtinput.value}` 
  
     // put the data inside the div to add to the HTML
     divParent.appendChild(divChild)
@@ -42,7 +46,7 @@ function newItem(){
 
     //icon for checking an item off the list 
     icon.addEventListener("click",function(){
-      icon.style.color = "limegreen";
+      icon.classList.toggle('toggle-class');
     });
     bomb.addEventListener("click",function(){
       divParent.remove();
@@ -52,6 +56,7 @@ function newItem(){
 
     // clear the input box at the end
     txtinput.value = "";
+    dateInput.value = "";
 
   }
 }

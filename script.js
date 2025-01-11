@@ -46,8 +46,10 @@ function newItem(){
 
     //icon for checking an item off the list 
     icon.addEventListener("click",function(){
-      icon.classList.toggle('toggle-class');
+      // icon.classList.toggle('toggle-class');
+      divParent.classList.toggle('listClass-complete')
     });
+
     bomb.addEventListener("click",function(){
       divParent.remove();
     });
